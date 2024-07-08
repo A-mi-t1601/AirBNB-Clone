@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("../Models/User.js");
 const WrapAsync = require("../Utils/WrapAsync");
 const passport = require("passport");
+const { saveRedirectUrl } = require("../Middleware.js");
 
 // Sign Up
 router.get("/signup", (req, res) => {
@@ -17,8 +18,13 @@ router.post(
       const newUser = new User({ email, username });
       const registeredUser = await User.register(newUser, password);
       console.log(registeredUser);
-      req.flash("Success", "Welcome To Wanderlust");
-      res.redirect("/Listing");
+      req.login(registeredUser, (err) => {
+        if (err) {
+          return next(err);
+        }
+        req.flash("Success", "Welcome To Wanderlust");
+        res.redirect("/Listing");
+      });
     } catch (e) {
       req.flash("Error", e.message);
       res.redirect("/signup");
@@ -33,13 +39,15 @@ router.get("/login", (req, res) => {
 
 router.post(
   "/login",
+  saveRedirectUrl,
   passport.authenticate("local", {
     failureRedirect: "/login",
     failureFlash: true,
   }),
   async (req, res) => {
     req.flash("Success", "Welcome Back To Wanderlust!");
-    res.redirect("/Listing");
+    let redirectUrl = res.locals.redirectUrl || "/Listing";
+    res.redirect(redirectUrl);
   }
 );
 
