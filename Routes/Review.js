@@ -1,29 +1,23 @@
 const express = require("express");
 const router = express.Router({ mergeParams: true });
 const WrapAsync = require("../Utils/WrapAsync.js");
-const ExpressError = require("../Utils/ExpressError.js");
-const { reviewSchema } = require("../Schema.js");
 const Review = require("../Models/Review.js");
 const Listing = require("../Models/Listing.js");
-
-//Validate Review Server Side
-const validateReview = (req, res, next) => {
-  let { error } = reviewSchema.validate(req.body);
-  if (error) {
-    let errMsg = error.details.map((el) => el.message).join(",");
-    throw new ExpressError(400, errMsg);
-  } else {
-    next();
-  }
-};
+const {
+  validateReview,
+  isLoggedIn,
+  isReviewAuthor,
+} = require("../Middleware.js");
 
 //POST Review Route
 router.post(
   "/",
+  isLoggedIn,
   validateReview,
   WrapAsync(async (req, res) => {
     let listing = await Listing.findById(req.params.id);
     let newReview = new Review(req.body.review);
+    newReview.author = req.user._id;
     listing.review.push(newReview);
     await newReview.save();
     await listing.save();
@@ -35,6 +29,8 @@ router.post(
 //Delete Review Route
 router.delete(
   "/:reviewId",
+  isLoggedIn,
+  isReviewAuthor,
   WrapAsync(async (req, res) => {
     let { id, reviewId } = req.params;
     await Listing.findByIdAndUpdate(id, { $pull: { review: reviewId } });

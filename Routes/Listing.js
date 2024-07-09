@@ -2,20 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Listing = require("../Models/Listing.js");
 const WrapAsync = require("../Utils/WrapAsync.js");
-const ExpressError = require("../Utils/ExpressError.js");
-const { ListingSchema } = require("../Schema.js");
-const { isLoggedIn } = require("../Middleware.js");
-
-//Validate Listing Server Side
-const validateListing = (req, res, next) => {
-  let { error } = ListingSchema.validate(req.body);
-  if (error) {
-    let errMsg = error.details.map((el) => el.message).join(",");
-    throw new ExpressError(400, errMsg);
-  } else {
-    next();
-  }
-};
+const { isLoggedIn, isOwner, validateListing } = require("../Middleware.js");
 
 //Index Route
 router.get(
@@ -36,11 +23,19 @@ router.get(
   "/:id",
   WrapAsync(async (req, res) => {
     let { id } = req.params;
-    const listing = await Listing.findById(id).populate("review");
+    const listing = await Listing.findById(id)
+      .populate({
+        path: "review",
+        populate: {
+          path: "author",
+        },
+      })
+      .populate("owner");
     if (!listing) {
       req.flash("Error", "Listing Doesn't Exist!");
       res.redirect("/Listing");
     }
+    console.log(listing);
     res.render("Listing/Show.ejs", { listing });
   })
 );
@@ -52,7 +47,7 @@ router.post(
   validateListing,
   WrapAsync(async (req, res, next) => {
     const newListing = new Listing(req.body.listing);
-    console.log(newListing);
+    newListing.owner = req.user._id;
     await newListing.save();
     req.flash("Success", "New Listing Created!");
     res.redirect("/Listing");
@@ -63,6 +58,7 @@ router.post(
 router.get(
   "/:id/Edit",
   isLoggedIn,
+  isOwner,
   WrapAsync(async (req, res) => {
     let { id } = req.params;
     const listing = await Listing.findById(id);
@@ -78,6 +74,7 @@ router.get(
 router.put(
   "/:id",
   isLoggedIn,
+  isOwner,
   validateListing,
   WrapAsync(async (req, res) => {
     let { id } = req.params;
@@ -91,6 +88,7 @@ router.put(
 router.delete(
   "/:id",
   isLoggedIn,
+  isOwner,
   WrapAsync(async (req, res) => {
     let { id } = req.params;
     let deletedListing = await Listing.findByIdAndDelete(id);
