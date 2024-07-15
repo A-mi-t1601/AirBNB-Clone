@@ -19,6 +19,7 @@ module.exports.saveRedirectUrl = (req, res, next) => {
   next();
 };
 
+//Listing Owner
 module.exports.isOwner = async (req, res, next) => {
   let { id } = req.params;
   let listing = await Listing.findById(id);
@@ -51,6 +52,7 @@ module.exports.validateReview = (req, res, next) => {
   }
 };
 
+//Review Author
 module.exports.isReviewAuthor = async (req, res, next) => {
   let { id, reviewId } = req.params;
   let review = await Review.findById(reviewId);
