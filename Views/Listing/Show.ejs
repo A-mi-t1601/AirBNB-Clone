@@ -1,6 +1,6 @@
 <% layout("./Layouts/Boilerplate") %>
 
-<!-- MAp Token -->
+<!-- Map Token -->
 <script>
   const mapToken = "<%= process.env.MAP_TOKEN %>";
 </script>
@@ -9,6 +9,7 @@
   <div class="col-8 offset-3">
     <h3><%= listing.title %></h3>
   </div>
+
   <div class="card col-6 offset-3 show-card listing-card">
     <img
       src="<%= listing.image.url %>"
@@ -100,6 +101,7 @@
           <label for="first-rate5" title="Amazing">5 stars</label>
         </fieldset>
       </div>
+
       <div class="mb-3 mt-3">
         <label for="comment" class="form-label">Comments</label>
         <textarea
@@ -112,9 +114,11 @@
         ></textarea>
         <div class="invalid-feedback">Please Add Some Comments For Review</div>
       </div>
+
       <button class="btn btn-outline-dark">Submit</button>
     </form>
     <hr />
+
     <% } %> <% if(listing.review.length > 0) { %>
     <div class="row">
       <p><b>All Reviews</b></p>
