@@ -6,7 +6,7 @@ const {
   isLoggedIn,
   isReviewAuthor,
 } = require("../middleware.js");
-const reviewController = require("../Controllers/Review.js");
+const reviewController = require("../controllers/review.js");
 
 //Create Route
 router.post(

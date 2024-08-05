@@ -3,12 +3,12 @@ const Listing = require("../models/listing.js");
 //Index Route
 module.exports.index = async (req, res) => {
   const allListing = await Listing.find({});
-  res.render("./Listing/Index.ejs", { allListing });
+  res.render("./Listing/index.ejs", { allListing });
 };
 
 //New Route
 module.exports.renderNewForm = (req, res) => {
-  res.render("Listing/New.ejs");
+  res.render("Listing/new.ejs");
 };
 
 //Show Route
@@ -27,7 +27,7 @@ module.exports.showListing = async (req, res) => {
     res.redirect("/Listing");
   }
   console.log(listing);
-  res.render("Listing/Show.ejs", { listing });
+  res.render("Listing/show.ejs", { listing });
 };
 
 //Create Route
@@ -52,7 +52,7 @@ module.exports.renderEditForm = async (req, res) => {
   }
   let originalImageUrl = listing.image.url;
   originalImageUrl = originalImageUrl.replace("/Upload", "/Upload/w_250");
-  res.render("Listing/Edit.ejs", { listing, originalImageUrl });
+  res.render("Listing/edit.ejs", { listing, originalImageUrl });
 };
 
 //Update Route
