@@ -1,4 +1,4 @@
-const Listing = require("../models/Listing.js");
+const Listing = require("../models/listing.js");
 
 //Index Route
 module.exports.index = async (req, res) => {
