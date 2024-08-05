@@ -13,23 +13,23 @@ Welcome to the WanderLust GitHub Documentation! This repository contains the sou
 
 ## Introduction
 
-WanderLust is a web application designed for travel enthusiasts to discover, share, and explore travel destinations, activities, and experiences. It leverages modern web technologies to provide a seamless user experience, including CRUD operations for managing content, image uploads, and secure authentication mechanisms.
+WanderLust is a web application designed for travel enthusiasts to discover, share and explore travel destinations, activities and experiences also. It leverages modern web technologies to provide a seamless user experience, including "CRUD Operations" for managing content, Image Uploads, and Secure Authentication Mechanisms.
 
-Certainly! Here's the updated tech stack with the additional components:
+Certainly! Here's the updated Tech Stack with the additional components:-
 
 ## Tech Stack
 
-WanderLust's tech stack comprises the following components:
+WanderLust's Tech Stack comprises the following components:-
 
-- **HTML5, CSS3, JavaScript**: Fundamental web technologies for building user interfaces and implementing interactive features.
+- **HTML5, CSS3, JavaScript**:- Fundamental web technologies for building user interfaces and implementing interactive features.
 - **Node.js and Express.js**: The backbone of the application, facilitating rapid development and efficient server-side logic handling.
-- **MongoDB**: Empowers data storage with its flexible NoSQL database, seamlessly integrating CRUD operations for managing travel-related content.
+- **MongoDB**: Empowers data storage with its flexible NoSQL database, seamlessly integrating CRUD Operations for managing travel-related content.
 - **Cloudinary**: Enables effortless image uploads and management, enhancing user experience with visually captivating travel imagery.
 - **Passport.js**: Implements secure authentication mechanisms, safeguarding user accounts and enabling personalized experiences.
 - **Maptiler**: Provides interactive mapping capabilities, allowing users to visualize travel destinations and activities.
 - **API Integration**: Integrates with external APIs to enhance functionality and access additional data sources.
 - **Geolocation and Geocoding**: Utilizes geolocation services for pinpointing user locations and converting addresses to geographic coordinates.
-- **Bootstrap**: Front-end framework for designing responsive and mobile-first web pages, enhancing the application's visual appeal and usability.
+- **Bootstrap5.3.3**: Front-end framework for designing responsive and mobile-first web pages, enhancing the application's visual appeal and usability.
 
 ## Key Features
 
@@ -51,7 +51,7 @@ WanderLust offers a range of features designed to enhance the user experience an
 
 ### Show Listing Controller
 
-- **Description**: Retrieves a specific listing by ID and populates related data (review, owner) for display.
+- **Description**: Retrieves a specific listing by ID and populates related data (Review, Owner) for display.
 - **Controller**: `show`
 - **Route**: GET `/Listing/:id`
 
@@ -113,7 +113,7 @@ WanderLust offers a range of features designed to enhance the user experience an
 - **Controller**: `logoutLink`
 - **Route**: GET `/logout`
 
-## review
+## Review
 
 ### Review Controller
 
@@ -167,7 +167,7 @@ WanderLust offers a range of features designed to enhance the user experience an
 
 # Maptiler Integration Documentation
 
-WanderLust integrates Maptiler for interactive map functionality, allowing users to visualize travel destinations and activities on an interactive map interface. Below is a breakdown of the Maptiler integration code:
+WanderLust integrates Maptiler for interactive map functionality, allowing users to visualize travel destinations and activities on an interactive map interface. Below is a breakdown of the Maptiler integration code:-
 
 ---
 
