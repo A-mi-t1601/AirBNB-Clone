@@ -8,7 +8,6 @@ const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-const ExpressError = require("./utils/expressError.js");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
@@ -19,6 +18,7 @@ const User = require("./models/user.js");
 const ListingRouter = require("./routes/listing.js");
 const ReviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
+const ExpressError = require("./utils/ExpressError.js");
 
 const dbUrl = process.env.ATLASDB_URL;
 main()
