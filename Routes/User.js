@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const WrapAsync = require("../Utils/WrapAsync");
+const WrapAsync = require("../Utils/WrapAsync.js");
 const passport = require("passport");
 const { saveRedirectUrl } = require("../Middleware.js");
-const userController = require("../Controllers/User.js");
+const userController = require("../controllers/User.js");
 
 //Signup
 router
