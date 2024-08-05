@@ -16,8 +16,8 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
-const ListingRouter = require("./routes/Listing.js");
-const ReviewRouter = require("./routes/Review.js");
+const ListingRouter = require("./routes/listing.js");
+const ReviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
 const dbUrl = process.env.ATLASDB_URL;
@@ -90,7 +90,7 @@ app.all("*", (req, res, next) => {
 
 app.use((err, req, res, next) => {
   let { statusCode = 500, message = "Something Went Wrong!" } = err;
-  res.status(statusCode).render("Error.ejs", { message });
+  res.status(statusCode).render("error.ejs", { message });
 });
 
 app.listen(1608, () => {
