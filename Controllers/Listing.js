@@ -1,17 +1,17 @@
 const Listing = require("../models/listing.js");
 
-//Index Route
+// Index Route
 module.exports.index = async (req, res) => {
   const allListing = await Listing.find({});
   res.render("./Listing/index.ejs", { allListing });
 };
 
-//New Route
+// New Route
 module.exports.renderNewForm = (req, res) => {
   res.render("Listing/new.ejs");
 };
 
-//Show Route
+// Show Route
 module.exports.showListing = async (req, res) => {
   let { id } = req.params;
   const listing = await Listing.findById(id)
@@ -30,7 +30,7 @@ module.exports.showListing = async (req, res) => {
   res.render("Listing/show.ejs", { listing });
 };
 
-//Create Route
+// Create Route
 module.exports.createListing = async (req, res, next) => {
   let url = req.file.path;
   let filename = req.file.filename;
@@ -42,7 +42,7 @@ module.exports.createListing = async (req, res, next) => {
   res.redirect("/Listing");
 };
 
-//Edit Route
+// Edit Route
 module.exports.renderEditForm = async (req, res) => {
   let { id } = req.params;
   const listing = await Listing.findById(id);
@@ -55,7 +55,7 @@ module.exports.renderEditForm = async (req, res) => {
   res.render("Listing/edit.ejs", { listing, originalImageUrl });
 };
 
-//Update Route
+// Update Route
 module.exports.updateListing = async (req, res) => {
   let { id } = req.params;
   let listing = await Listing.findByIdAndUpdate(id, { ...req.body.listing });
@@ -69,7 +69,7 @@ module.exports.updateListing = async (req, res) => {
   res.redirect(`/Listing/${id}`);
 };
 
-//Delete Route
+// Delete Route
 module.exports.deleteListing = async (req, res) => {
   let { id } = req.params;
   let deletedListing = await Listing.findByIdAndDelete(id);

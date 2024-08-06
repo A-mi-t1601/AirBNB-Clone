@@ -18,7 +18,7 @@ const User = require("./models/user.js");
 const ListingRouter = require("./routes/listing.js");
 const ReviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
-const ExpressError = require("./utils/ExpressError.js");
+const ExpressError = require("./utils/expressError.js");
 
 const dbUrl = process.env.ATLASDB_URL;
 main()
@@ -37,7 +37,7 @@ app.set("Views", path.join(__dirname, "Views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
-app.use(express.static(path.join(__dirname, "/Public")));
+app.use(express.static(path.join(__dirname, "/public")));
 
 const store = MongoStore.create({
   mongoUrl: dbUrl,

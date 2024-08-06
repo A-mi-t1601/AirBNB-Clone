@@ -5,13 +5,13 @@ const passport = require("passport");
 const { saveRedirectUrl } = require("../middleware.js");
 const userController = require("../controllers/user.js");
 
-//Signup
+// Signup
 router
   .route("/signup")
   .get(userController.signupGET)
   .post(WrapAsync(userController.signupPOST));
 
-//Login
+// Login
 router
   .route("/login")
   .get(userController.loginGET)
@@ -24,7 +24,7 @@ router
     userController.loginPOST
   );
 
-//Logout
+// Logout
 router.get("/logout", userController.logoutGET);
 
 module.exports = router;

@@ -1,6 +1,6 @@
 # WanderLust GitHub Documentation
 
-Welcome to the WanderLust GitHub Documentation! This repository contains the source code and documentation for WanderLust, a travel-centric web application powered by Node.js and Express.js.
+Welcome to the WanderLust GitHub Documentation! This repository contains the source code and documentation for WanderLust, a travel-centric web application powered by Node.js, Express.js, and MongoDB.
 
 ## Table of Contents
 
