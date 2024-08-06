@@ -4,7 +4,7 @@
   },
   "name": "airbnb-clone",
   "version": "1.0.0",
-  "description": "\"Airbnb-Clone\" </br>\r Here is the details about this project....</br>\r </br>\r I'll complete this project in 3 different phase. Let me explain-; </br>\r <br/>\r <b>First Phase</b>",
+  "description": "\"Airbnb-Clone\" ",
   "main": "App.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
