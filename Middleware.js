@@ -19,7 +19,7 @@ module.exports.saveRedirectUrl = (req, res, next) => {
   next();
 };
 
-// Listing Owner
+//Listing Owner
 module.exports.isOwner = async (req, res, next) => {
   let { id } = req.params;
   let listing = await Listing.findById(id);
@@ -30,7 +30,7 @@ module.exports.isOwner = async (req, res, next) => {
   next();
 };
 
-// Validate Listing Server Side
+//Validate Listing Server Side
 module.exports.validateListing = (req, res, next) => {
   let { error } = ListingSchema.validate(req.body);
   if (error) {
@@ -41,7 +41,7 @@ module.exports.validateListing = (req, res, next) => {
   }
 };
 
-// Validate Review Server Side
+//Validate Review Server Side
 module.exports.validateReview = (req, res, next) => {
   let { error } = reviewSchema.validate(req.body);
   if (error) {
@@ -52,7 +52,7 @@ module.exports.validateReview = (req, res, next) => {
   }
 };
 
-// Review Author
+//Review Author
 module.exports.isReviewAuthor = async (req, res, next) => {
   let { id, reviewId } = req.params;
   let review = await Review.findById(reviewId);

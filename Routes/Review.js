@@ -8,7 +8,7 @@ const {
 } = require("../middleware.js");
 const reviewController = require("../controllers/review.js");
 
-// Create Route
+//Create Route
 router.post(
   "/",
   isLoggedIn,
@@ -16,7 +16,7 @@ router.post(
   WrapAsync(reviewController.createReview)
 );
 
-// Delete Route
+//Delete Route
 router.delete(
   "/:reviewId",
   isLoggedIn,

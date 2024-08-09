@@ -15,8 +15,6 @@ Welcome to the WanderLust GitHub Documentation! This repository contains the sou
 
 WanderLust is a web application designed for travel enthusiasts to discover, share and explore travel destinations, activities and experiences also. It leverages modern web technologies to provide a seamless user experience, including "CRUD Operations" for managing content, Image Uploads, and Secure Authentication Mechanisms.
 
-Certainly! Here's the updated Tech Stack with the additional components:-
-
 ## Tech Stack
 
 WanderLust's Tech Stack comprises the following components:-
@@ -167,7 +165,7 @@ WanderLust offers a range of features designed to enhance the user experience an
 
 # Maptiler Integration Documentation
 
-WanderLust integrates Maptiler for interactive map functionality, allowing users to visualize travel destinations and activities on an interactive map interface. Below is a breakdown of the Maptiler integration code:-
+WanderLust integrates Maptiler for interactive map functionality, allowing users to visualize travel destinations and activities on an interactive map interface.
 
 ---
 
@@ -177,7 +175,7 @@ These controllers, routes, and middleware collectively provide the functionality
 
 Looking ahead, WanderLust aims to enrich the user experience by implementing the following features:
 
-- **Real-time Chat Functionality**: Foster community engagement by introducing real-time chat functionality, allowing users to connect, share travel tips, and exchange experiences.
+- **Real-time Chat Functionality**: Faster community engagement by introducing real-time chat functionality, allowing users to connect, share travel tips, and exchange experiences.
 - **Advanced Search Capabilities**: Empower users to discover relevant travel content more efficiently with advanced search capabilities, including filters for destinations, activities, and user-generated content.
 - **Performance Optimization and Scalability**: Continuously optimize performance and scalability to accommodate growing user engagement and ensure a smooth and responsive user experience.
 

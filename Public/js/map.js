@@ -1,9 +1,9 @@
 maptilersdk.config.apiKey = mapToken;
 const map = new maptilersdk.Map({
-  container: "map", // Container's Id or The HTML Element To Render The Map
+  container: "map", //Container's Id or The HTML Element To Render The Map
   style: "streets-v2",
-  center: [78.6569, 22.9734], // Starting Position [lng, lat]
-  zoom: 3, // Starting Zoom
+  center: [78.6569, 22.9734], //Starting Position [lng, lat]
+  zoom: 3, //Starting Zoom
 });
 
 const marker = new maptilersdk.Marker({ color: "black" })
